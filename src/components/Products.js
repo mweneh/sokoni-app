@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { NavLink } from "react-router-dom";
+
 function Products() {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
-  let componentMounted = true;
+  
+ 
   const API_URL = "https://fakestoreapi.com/products";
   useEffect(() => {
-    
+     let componentMounted = true;
+     
     const getItems = async () => {
       setLoading(true);
       const response = await fetch(API_URL);

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
+import { useDispatch } from "react-redux";
+import { addCart } from "../redux/action";
 
 export default function Product() {
 
