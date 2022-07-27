@@ -5,7 +5,7 @@ const cart=[]
 function cartHandler(state=cart,action) {
     const item = action.payload
     switch (action.type) {
-        case ADDITEM:
+        case 'ADDITEM':
             // already in cart?
             const exists = state.find(i =>i.id === item.id)
             if(exists){
@@ -24,7 +24,7 @@ function cartHandler(state=cart,action) {
                 ]
             }
             break;
-    case DELITEM:
+    case 'DELITEM':
         const exists2 = state.find(n => n.id === item.id)
         if(exists2.q === 1) {
             return state.filter((n)=>n.id !== exists2.id)
@@ -35,8 +35,9 @@ function cartHandler(state=cart,action) {
         )
     }
     break
-    
+
         default:
+            return state
             break;
     }
 }
