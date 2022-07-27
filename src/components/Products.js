@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
-
+import { NavLink } from "react-router-dom";
 function Products() {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
@@ -64,9 +64,9 @@ function Products() {
                   <p className="card-text lead fw-bold">
                    ${item.price}
                   </p>
-                  <a href="#" className="btn btn-primary">
+                  <NavLink to={`/products/${item.id}`} className="btn btn-primary">
                     Add to Cart
-                  </a>
+                  </NavLink>
                 </div>
               </div>
             </div>
