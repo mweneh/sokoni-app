@@ -39,8 +39,8 @@ function Products() {
   }
 
   const filterItem = (cat) =>{
-    const newList = data.filter(n =>n.category === cat)
-    setFilter(newList)
+    const updateList = data.filter(n =>n.category === cat)
+    setFilter(updateList)
   }
   const DisplayItems = () => (
     <div>
