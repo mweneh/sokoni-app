@@ -8,6 +8,7 @@ function Products() {
   let componentMounted = true;
   const API_URL = "https://fakestoreapi.com/products";
   useEffect(() => {
+    
     const getItems = async () => {
       setLoading(true);
       const response = await fetch(API_URL);
@@ -39,8 +40,9 @@ function Products() {
   }
 
   const filterItem = (cat) =>{
-    const updateList = data.filter(n =>n.category === cat)
+    const updateList = data.filter((n) => n.category === cat.toLowerCase())
     setFilter(updateList)
+    // console.log('hey')
   }
   const DisplayItems = () => (
     <div>
@@ -55,14 +57,14 @@ function Products() {
         return (
           <>
             <div className="col-md-3 mb-4">
-              <div class="card h-100 text-center p-4" key={item.id} >
-                <img src={item.image }class="card-img-top" alt={item.title} height='300px'/>
-                <div class="card-body">
-                  <h5 class="card-title mb-0">{item.title.substring(0,12)} ...</h5>
-                  <p class="card-text lead fw-bold">
+              <div className="card h-100 text-center p-4" key={item.id} >
+                <img src={item.image }className="card-img-top" alt={item.title} height='300px'/>
+                <div className="card-body">
+                  <h5 className="card-title mb-0">{item.title.substring(0,12)} ...</h5>
+                  <p className="card-text lead fw-bold">
                    ${item.price}
                   </p>
-                  <a href="#" class="btn btn-primary">
+                  <a href="#" className="btn btn-primary">
                     Add to Cart
                   </a>
                 </div>
