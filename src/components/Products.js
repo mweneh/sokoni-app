@@ -46,8 +46,8 @@ function Products() {
     <div>
       <div className="buttons d-flex justify-content-center mb-5 pb-5">
         <button className="btn btn-outline-primary me-2" onClick={()=>setFilter(data)}>All</button>
-        <button className="btn btn-outline-primary me-2" onClick={()=>filterItem('Men Wear')}> Men Wear</button>
-        <button className="btn btn-outline-primary me-2" onClick={()=>filterItem('Women Wear')}> Women Wear</button>
+        <button className="btn btn-outline-primary me-2" onClick={()=>filterItem("Men's Clothing")}> Men's Clothing</button>
+        <button className="btn btn-outline-primary me-2" onClick={()=>filterItem("Women's Clothing")}> Women's Clothing</button>
         <button className="btn btn-outline-primary me-2" onClick={()=>filterItem('Electronics')}> Electronics</button>
         <button className="btn btn-outline-primary me-2" onClick={()=>filterItem('Jewelery')}> Jewelery</button>
       </div>
