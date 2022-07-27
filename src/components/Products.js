@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 
 function Products() {
   const [data, setData] = useState([]);
@@ -7,7 +8,7 @@ function Products() {
   let componentMounted = true;
   const API_URL = "https://fakestoreapi.com/products";
   useEffect(() => {
-    const getProducts = async () => {
+    const getItems = async () => {
       setLoading(true);
       const response = await fetch(API_URL);
       if (componentMounted) {
@@ -20,35 +21,49 @@ function Products() {
         componentMounted = false;
       };
     };
-    getProducts();
+    getItems();
   }, []);
 
   function Loading() {
-    return <>Loading...</>;
+    return (<>
+            <div className="col-md-3">
+                <Skeleton height={350}/>
+            </div>
+            <div className="col-md-3">
+                <Skeleton height={350}/>
+            </div>
+            <div className="col-md-3">
+                <Skeleton height={350}/>
+            </div>
+    </>)
   }
 
-  const ShowProducts = () => (
+  const filterItem = (cat) =>{
+    const newList = data.filter(n =>n.category === cat)
+    setFilter(newList)
+  }
+  const DisplayItems = () => (
     <div>
       <div className="buttons d-flex justify-content-center mb-5 pb-5">
-        <button className="btn btn-outline-primary me-2">All</button>
-        <button className="btn btn-outline-primary me-2"> Men Wear</button>
-        <button className="btn btn-outline-primary me-2"> Women Wear</button>
-        <button className="btn btn-outline-primary me-2"> Electronics</button>
-        <button className="btn btn-outline-primary me-2"> Jewelery</button>
+        <button className="btn btn-outline-primary me-2" onClick={()=>setFilter(data)}>All</button>
+        <button className="btn btn-outline-primary me-2" onClick={()=>filterItem('Men Wear')}> Men Wear</button>
+        <button className="btn btn-outline-primary me-2" onClick={()=>filterItem('Women Wear')}> Women Wear</button>
+        <button className="btn btn-outline-primary me-2" onClick={()=>filterItem('Electronics')}> Electronics</button>
+        <button className="btn btn-outline-primary me-2" onClick={()=>filterItem('Jewelery')}> Jewelery</button>
       </div>
       {filter.map((item) => {
         return (
           <>
-            <div className="col-md-3">
+            <div className="col-md-3 mb-4">
               <div class="card h-100 text-center p-4" key={item.id} >
-                <img src={item.image }class="card-img-top" alt={item.title}/>
+                <img src={item.image }class="card-img-top" alt={item.title} height='300px'/>
                 <div class="card-body">
-                  <h5 class="card-title">{item.title}</h5>
-                  <p class="card-text">
+                  <h5 class="card-title mb-0">{item.title.substring(0,12)} ...</h5>
+                  <p class="card-text lead fw-bold">
                    ${item.price}
                   </p>
                   <a href="#" class="btn btn-primary">
-                    Go somewhere
+                    Add to Cart
                   </a>
                 </div>
               </div>
@@ -67,7 +82,7 @@ function Products() {
         </div>
       </div>
       <div className="row justify-content-center">
-        {loading ? <Loading /> : <ShowProducts />}
+        {loading ? <Loading /> : <DisplayItems />}
       </div>
     </div>
   );
