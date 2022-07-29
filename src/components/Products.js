@@ -49,7 +49,7 @@ function Products() {
     // console.log('hey')
   }
   const DisplayItems = () => (
-    <div className="row">
+    <div className="row ">
       <div className="buttons d-flex justify-content-center mb-5 pb-5">
         <button className="btn btn-outline-primary me-2" onClick={()=>setFilter(data)}>All</button>
         <button className="btn btn-outline-primary me-2" onClick={()=>filterItem("Men's Clothing")}> Men's Clothing</button>
@@ -59,7 +59,7 @@ function Products() {
       </div>
       {filter.map((item) => {
         return (
-          <div className="row ">
+          <div className="row " style={{col:4}}>
             <div className="col-md-4 mb-4">
               <div className="card h-100 text-center p-4" key={item.id} >
                 <img src={item.image }className="card-img-top" alt={item.title} height='400px' />

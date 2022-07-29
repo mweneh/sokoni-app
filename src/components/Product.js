@@ -3,18 +3,20 @@ import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import { useDispatch } from "react-redux";
-import { addCart } from "../redux/action";
+import { addCart} from "../redux/action/index";
 
 export default function Product() {
 
     const [product, setProduct] =useState([])
     const {id}=useParams()
+    console.log(id)
     const [loading,setLoading]= useState(false)
     const API_URL = `https://fakestoreapi.com/products/${id}`;
 
     const dispatch= useDispatch()
-    const addItem = (product)=>{
-        return dispatch(addCart(product))
+    const addItem = (product)=>{console.log(product)
+        return dispatch(addCart(product)) 
+        
     }
 
     useEffect(()=>{
