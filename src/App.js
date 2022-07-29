@@ -7,6 +7,7 @@ import Product from './components/Product';
 import { Route, Switch} from 'react-router-dom'
 import About from './components/About';
 import Contacts from './components/Contacts'
+import Login from './components/Login';
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
       </Route>
       <Route exact path = '/about' element={<About/>} ><About/></Route>
       <Route exact path = '/contacts' element={<Contacts/>} ><Contacts/></Route>
+      <Route exact path = '/login' element={<Login/>} ><Login/></Route>
+
 
       {/* </Routes> */}</Switch>
     </div>
