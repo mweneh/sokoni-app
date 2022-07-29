@@ -1,15 +1,15 @@
 //add item to cart
-function addCart(item) {
+export const addCart = (product) =>{
     return{ 
         type:'ADDCART',
-        payload: item
+        payload:product
 }
 }
+
 // remove item from cart
-function removeCart(item) {
+ export function removeCart(product) {
     return{ 
         type:'DELCART',
-        payload: item
+        payload: product
 }
 }
-export {addCart,removeCart}

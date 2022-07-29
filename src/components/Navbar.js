@@ -53,6 +53,7 @@ function Navbar() {
                <NavLink to="/cart" className="btn btn-outline-dark ms-2">
                <i className="fa fa-cart-plus me-2"></i> Cart({state.length}) </NavLink>
             </div>
+            
           </div>
         </div>
       </nav>

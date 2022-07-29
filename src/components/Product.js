@@ -12,6 +12,10 @@ export default function Product() {
     const [loading,setLoading]= useState(false)
     const API_URL = `https://fakestoreapi.com/products/${id}`;
 
+    const dispatch= useDispatch()
+    const addItem = (product)=>{
+        return dispatch(addCart(product))
+    }
 
     useEffect(()=>{
         const getProduct = async ()=>{
@@ -42,7 +46,8 @@ export default function Product() {
     }
 
     const DisplayItem =()=> {
-        return (<>
+        return (
+    <div>
         <div className="col-md-6">
             <img src={product.image} alt={product.title} height='400px' width='400px' />
         </div>
@@ -51,12 +56,13 @@ export default function Product() {
             <h2 className="display-5">{product.title}</h2>
             <p className="lead fw-bolder">Rating {product.rating && product.rating.rate} </p>
             <i className=" fa fa-star"></i>
-            <h4 className="display-6 fw-bolder"> $ {product.price} </h4>
+            <h4 className="display-6 fw-bolder "> $ {product.price} </h4>
             <p className="lead"> {product.description}</p>
-            <button type="button" class="btn btn-info px-3 py-2 me-2">Buy Item</button>
-            <NavLink to='/cart' class="btn btn-primary px-3 py-2 ">Go to Cart</NavLink>
+            <button type="button" class="btn btn-info px-3 py-2 me-2" 
+            onClick={()=>addItem(product)}>Add to Cart</button>
+            <NavLink to='/cart' class="btn btn-primary px-3 py-2 ">View Cart</NavLink>
         </div>
-        </>)
+    </div>)
     }
     return (
         <div>

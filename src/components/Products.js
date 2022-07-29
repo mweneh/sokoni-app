@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { NavLink } from "react-router-dom";
 
+
 function Products() {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
@@ -48,7 +49,7 @@ function Products() {
     // console.log('hey')
   }
   const DisplayItems = () => (
-    <div>
+    <div className="row">
       <div className="buttons d-flex justify-content-center mb-5 pb-5">
         <button className="btn btn-outline-primary me-2" onClick={()=>setFilter(data)}>All</button>
         <button className="btn btn-outline-primary me-2" onClick={()=>filterItem("Men's Clothing")}> Men's Clothing</button>
@@ -58,7 +59,7 @@ function Products() {
       </div>
       {filter.map((item) => {
         return (
-          <>
+          < div>
             <div className="col-md-3 mb-4">
               <div className="card h-100 text-center p-4" key={item.id} >
                 <img src={item.image }className="card-img-top" alt={item.title} height='300px'/>
@@ -68,12 +69,12 @@ function Products() {
                    ${item.price}
                   </p>
                   <NavLink to={`/products/${item.id}`} className="btn btn-primary">
-                    Add to Cart
+                    View Details
                   </NavLink>
                 </div>
               </div>
             </div>
-          </>
+          </div>
         );
       })}
     </div>
@@ -86,7 +87,7 @@ function Products() {
           <h1 className="display-6 fw-bold text-center">New Arrivals</h1>
         </div>
       </div>
-      <div className="row justify-content-center">
+      <div className="row d-grid  ">
         {loading ? <Loading /> : <DisplayItems />}
       </div>
     </div>
