@@ -1,7 +1,9 @@
+import { useHistory } from "react-router-dom";
 const Login = () => {
-
+  const history = useHistory()
     const handleSubmit =(e)=>{
         e.preventDefault()
+        history.push('/')
     }
   return (
     <div className="d-flex justify-content-center mb-7 pb-6">
