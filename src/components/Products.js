@@ -59,17 +59,17 @@ function Products() {
       </div>
       {filter.map((item) => {
         return (
-          <div className="row " style={{col:4}}>
-            <div className="col-md-4 mb-4">
+          <div className="col-4" >
+            <div className="col-md-5 mb-4 " style={{width: 20 + "rem", height: 25 + "rem"}}>
               <div className="card h-100 text-center p-4" key={item.id} >
-                <img src={item.image }className="card-img-top" alt={item.title} height='400px' />
+                <img src={item.image }className="card-img-top" alt={item.title} height='200px' width={200} />
                 <div className="card-body">
                   <h5 className="card-title mb-0">{item.title.substring(0,12)} ...</h5>
                   <p className="card-text lead fw-bold">
                    ${item.price}
                   </p>
                   <NavLink to={`/products/${item.id}`} className="btn btn-primary">
-                    View Details
+                    More Details
                   </NavLink>
                 </div>
               </div>
@@ -87,7 +87,7 @@ function Products() {
           <h1 className="display-6 fw-bold text-center">New Arrivals</h1>
         </div>
       </div>
-      <div className='row justify-content-center'>
+      <div className='row  justify-content-center ' id="grid">
         {loading ? <Loading /> : <DisplayItems />}
       </div>
     </div>
