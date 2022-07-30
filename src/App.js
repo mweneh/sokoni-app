@@ -13,7 +13,8 @@ import Login from './components/Login';
 function App() {
   return (
     <div className='App'>
-      <Navbar/><Switch>
+      <Navbar/>
+      <Switch>
       {/* <Routes> */}
         <Route exact path='/products' element={<Products/>}>
           <Products/>

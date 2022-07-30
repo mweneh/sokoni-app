@@ -9,7 +9,7 @@ function Home() {
         <div className="container">
         <h5 className="card-title display-3 fw-bolder">NEW STOCK</h5>
         <p className="card-text lead fs-2">
-          Check out cool trends
+          Check Out Cool Trends!
         </p>
         </div>
       </div>
