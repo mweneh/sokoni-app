@@ -8,8 +8,8 @@ function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg bg-light py-3 shadow-sm">
         <div className="container-fluid">
-          <NavLink className="navbar-brand fw-bold fs-4" to="/">
-            FRESH COLLECTIONS
+          <NavLink className="navbar-brand   fw-bold fs-4" to="/">
+            SOKONI FRESH
           </NavLink>
           <button
             className="navbar-toggler"
