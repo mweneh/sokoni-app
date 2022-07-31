@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
+import { NavLink } from "react-router-dom"
 import { removeCart } from "../redux/action"
 
 export default function Cart() {
@@ -36,10 +37,20 @@ export default function Cart() {
             </div>
         )
      }
+     const button = () =>{
+        return(
+            <div className="container">
+                <div className="row">
+                    <NavLink to='/checkout' className='btn mx-auto btn-outline-success mb-5 w-25'>Checkout Now</NavLink>
+                </div>
+            </div>
+        )
+     }
     return(
         <div>
             {state.length === 0 && cartEmpty()}
             {state.length !== 0 && state.map(cartItems)}
+            {state.length !== 0 && button()}
         </div>
     )
 }
