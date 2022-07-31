@@ -8,6 +8,7 @@ import { Route, Switch} from 'react-router-dom'
 import About from './components/About';
 import Contacts from './components/Contacts'
 import Login from './components/Login';
+import Cart from './components/Cart';
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
       <Route exact path = '/about' element={<About/>} ><About/></Route>
       <Route exact path = '/contacts' element={<Contacts/>} ><Contacts/></Route>
       <Route exact path = '/login' element={<Login/>} ><Login/></Route>
+      <Route exact path = '/cart' element={<Cart/>} ><Cart/></Route>
+
 
 
       {/* </Routes> */}</Switch>
