@@ -9,6 +9,7 @@ import About from './components/About';
 import Contacts from './components/Contacts'
 import Login from './components/Login';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
       <Route exact path = '/contacts' element={<Contacts/>} ><Contacts/></Route>
       <Route exact path = '/login' element={<Login/>} ><Login/></Route>
       <Route exact path = '/cart' element={<Cart/>} ><Cart/></Route>
+      <Route exact path = '/checkout' element={<Checkout/>} ><Checkout/></Route>
+
 
 
 
