@@ -3,11 +3,12 @@ import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import { useDispatch } from "react-redux";
-import { addCart} from "../redux/action/index";
+import { addCart, removeCart} from "../redux/action/index";
 
 export default function Product() {
 
     const [product, setProduct] =useState([])
+    const [cartBtn, setCartBtn]= useState('Add to Cart')
     const {id}=useParams()
     console.log(id)
     const [loading,setLoading]= useState(false)
@@ -15,8 +16,14 @@ export default function Product() {
 
     const dispatch= useDispatch()
     const addItem = (product)=>{console.log(product)
-        return dispatch(addCart(product)) 
-        
+        if (cartBtn === 'Add to Cart'){
+        dispatch(addCart(product)) 
+        setCartBtn("Remove from Cart")
+    }
+        else{
+            dispatch(removeCart(product)) 
+            setCartBtn('Add to Cart')
+        }
     }
 
     useEffect(()=>{
@@ -51,17 +58,17 @@ export default function Product() {
         return (
     <div>
         <div className="col-md-6">
-            <img src={product.image} alt={product.title} height='400px' width='400px' />
+            <img src={product.image} alt={product.title} height='300px' width='300px' />
         </div>
         <div className=" col-md-6">
             <h4 className=" text-black-40">{product.category} </h4>
             <h2 className="display-5">{product.title}</h2>
-            <p className="lead fw-bolder">Rating {product.rating && product.rating.rate} </p>
-            <i className=" fa fa-star"></i>
+            <p className="lead fw-bolder">Rating {product.rating && product.rating.rate} <i className=" fa fa-star"></i> 
+            </p>
             <h4 className="display-6 fw-bolder "> $ {product.price} </h4>
             <p className="lead"> {product.description}</p>
             <button type="button" class="btn btn-info px-3 py-2 me-2" 
-            onClick={()=>addItem(product)}>Add to Cart</button>
+            onClick={()=>addItem(product)}>{cartBtn}</button>
             <NavLink to='/cart' class="btn btn-primary px-3 py-2 ">View Cart</NavLink>
         </div>
     </div>)
