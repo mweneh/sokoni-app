@@ -5,6 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 #Sokoni App
 
 An app that allows you to view  and buy items in our store using various categories listed.
+**LIVE LINK https://sokoni.netlify.app/**
 
 
 ## Description
