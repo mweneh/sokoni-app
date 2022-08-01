@@ -10,6 +10,7 @@ import Contacts from './components/Contacts'
 import Login from './components/Login';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
+import Register from './components/Register';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Route exact path = '/about' element={<About/>} ><About/></Route>
       <Route exact path = '/contacts' element={<Contacts/>} ><Contacts/></Route>
       <Route exact path = '/login' element={<Login/>} ><Login/></Route>
+      <Route exact path = '/register' element={<Register/>} ><Register/></Route>
       <Route exact path = '/cart' element={<Cart/>} ><Cart/></Route>
       <Route exact path = '/checkout' element={<Checkout/>} ><Checkout/></Route>
 
