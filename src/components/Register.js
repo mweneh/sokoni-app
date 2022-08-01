@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
-export default class Register extends Component {
-  render() {
+import { NavLink } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+export default function Register() {
+  const history = useHistory()
+  const handleClick =(e)=>{
+      e.preventDefault()
+      history.push('/login')
+  }
+ 
+    
     return (
       <div className="d-flex justify-content-center mb-7 pb-6 py-4">
       <form>
@@ -39,10 +47,9 @@ export default class Register extends Component {
           </button>
         </div>
         <p className="forgot-password text-right">
-          Already registered <a href="/sign-in">sign in?</a>
+          Already registered <NavLink onClick={handleClick} to="/sign-in">sign in?</NavLink>
         </p>
       </form>
       </div>
     )
   }
-}
