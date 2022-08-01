@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 export default class Register extends Component {
   render() {
     return (
-      <div className="d-flex justify-content-center mb-7 pb-6">
+      <div className="d-flex justify-content-center mb-7 pb-6 py-4">
       <form>
         <h3>Sign Up</h3>
         <div className="mb-3">
